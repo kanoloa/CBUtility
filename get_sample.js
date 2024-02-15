@@ -3,7 +3,7 @@
 //         at Feb 10, 2024
 
 const cb = require('./lib/cbclient');
-const constants = require("constants");
+// const constants = require("constants");
 
 async function main() {
     try {
@@ -38,7 +38,6 @@ async function main() {
         for (const child of children.itemRefs) {
             console.log(`id: ${child.id},  name: ${child.name}`)
         }
-         */
 
         // example 5:
         // get downstream references.
@@ -58,9 +57,22 @@ async function main() {
             console.log(`id: ${up.id}, type: ${up.type}`);
         }
 
+         */
+
+        // example 7:
+        // query items
+        // const query = "SubjectName='工程計画'";
+        const query = "project.id IN (6) AND tracker.id IN (16227) AND SubjectNAME = '工程計画'";
+        const result = await cb.queryItems(query);
+        for (const item of result.items) {
+            console.log(`Tracker: ${item.tracker.id} Name: ${item.tracker.name} ID: ${item.id}: ${item.subjects[0].name}: ${item.name}`);
+        }
+        console.log(`${result.items.length} items returned.`);
+
     } catch(e) {
-        console.log(e);
+        console.log(e)
     }
+
 }
 
 main().then();
