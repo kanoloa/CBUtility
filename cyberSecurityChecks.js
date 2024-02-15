@@ -40,7 +40,7 @@ async function main() {
         for (const target of targetItems) {
             console.log(`ID: ${target.id},  URI: ${target.uri},  Name: ${target.type}`);
         }
-        console.log("values: " + JSON.stringify(targetItems));
+        // console.log("values: " + JSON.stringify(targetItems));
     }
 
     if (targetItems.length < 1) {
@@ -71,7 +71,7 @@ async function main() {
                 "fieldValues": fieldValues
             }
             sourceItems.push(entry);
-            // console.log(JSON.stringify(entry));
+            console.log(JSON.stringify(entry));
         }
     }
 
