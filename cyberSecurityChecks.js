@@ -1,8 +1,9 @@
+// Cyber-Security Check Program
 //
-//
+// Created by kanoloa (kanoloa@mac.com)
+//         at Feb 16th, 2024
 
 const cb = require('./lib/cbclient');
-
 
 async function main() {
 
@@ -24,6 +25,7 @@ async function main() {
     //
     // Get the target (upstream reference) items.
     //
+
     const result = await cb.queryItems(query);
     if (result != null) {
         for (const item of result.items) {
@@ -69,14 +71,14 @@ async function main() {
                 "fieldValues": fieldValues
             }
             sourceItems.push(entry);
-            console.log(JSON.stringify(entry));
+            // console.log(JSON.stringify(entry));
         }
     }
+
     //
     // Bulk update source Items
     //
-    // const request_body = [sourceItems];
-    // console.log(JSON.stringify(request_body));
+
     const response = await cb.bulkUpdateItems(sourceItems);
     console.log(response);
 
