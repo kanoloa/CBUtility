@@ -62,16 +62,14 @@ async function main() {
             let values = {
                 "values": targetItems,
                 "fieldId": sourceFieldId,
-                // "type": cb.CB_TYPE_REFERENCE
                 "type": cb.CB_TYPE_CHOICE
             };
-            let fieldValues = [values];
             let entry = {
                 "itemId": item.id,
-                "fieldValues": fieldValues
+                "fieldValues": [values]
             }
             sourceItems.push(entry);
-            console.log(JSON.stringify(entry));
+            // console.log(JSON.stringify(entry));
         }
     }
 
